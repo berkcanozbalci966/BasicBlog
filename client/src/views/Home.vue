@@ -1,5 +1,8 @@
 <template>
   <Categories />
+  <p>
+    {{ data }}
+  </p>
   <main class="container">
     <Jumbotron />
     <PostWithPic />
@@ -22,7 +25,9 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, ref } from "vue";
+
+// Components
 import Categories from "@/components/Home/Categories.vue";
 import Jumbotron from "@/components/Home/Jumbotron.vue";
 import PostWithPic from "@/components/Home/PostWithPic.vue";
@@ -31,6 +36,8 @@ import PageNavigation from "@/components/Home/PageNavigation.vue";
 import About from "@/components/Home/About.vue";
 import Archives from "@/components/Home/Archives.vue";
 import SocialMedia from "@/components/Home/SocialMedia.vue";
+
+import Request from "@/api/Request";
 
 export default defineComponent({
   name: "Home",
@@ -47,7 +54,10 @@ export default defineComponent({
 
   setup() {
     const value = 1;
-    return { value };
+    const data = ref(null);
+    Request({ type: "get", endPoint: "/", state: data });
+
+    return { value, data };
   },
 });
 </script>

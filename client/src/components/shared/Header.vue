@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-      <a class="navbar-brand" href="#">Basic Blog</a>
+      <router-link to="/" class="navbar-brand">Basic Blog</router-link>
       <button
         class="navbar-toggler"
         type="button"
@@ -16,10 +16,17 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Login</a>
+            <router-link class="nav-link active" aria-current="page" to="/login"
+              >Sign In</router-link
+            >
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Register</a>
+            <router-link
+              class="nav-link active"
+              aria-current="page"
+              to="/register"
+              >Sign Up</router-link
+            >
           </li>
         </ul>
       </div>
