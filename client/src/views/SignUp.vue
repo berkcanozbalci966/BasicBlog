@@ -69,8 +69,16 @@ export default defineComponent({
     const secondPassword = ref("");
 
     const registerAccount = () => {
-      const userInfos = { email, password, userName };
-      Request({ type: "post", endPoint: "/", postData: userInfos });
+      const userInfos = {
+        email: email.value,
+        password: password.value,
+        userName: userName.value,
+      };
+      Request({
+        type: "post",
+        endPoint: "/api/user/register",
+        postData: userInfos,
+      });
     };
 
     return { email, password, secondPassword, registerAccount, userName };

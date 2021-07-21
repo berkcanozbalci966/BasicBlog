@@ -10,10 +10,6 @@ const cors = require('cors')
 // İmport Routes
 const authRoute = require('../routes/auth')
 
-
-
-
-
 app.get('/', (req:Request, res:Response) => {
     res.json({ "try": "1" })
 })
@@ -21,6 +17,7 @@ app.get('/', (req:Request, res:Response) => {
 // Middlewares
 app.use(cors())
 app.use(express.json())
+app.use(express.urlencoded())
 
 // Route Middlewares
 app.use('/api/user',authRoute)
@@ -32,4 +29,5 @@ mongoose.connect(process.env.DB_CONNECT,
     () => { console.log('connected DB') });
 
 const PORT = 8000;
+
 app.listen(PORT, () => { console.log(`server runnig on ${PORT}`) })
