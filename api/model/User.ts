@@ -19,6 +19,10 @@ const userSchema = new mongoose.Schema({
         required: true,
         min: 6,
         max:255
+    },
+    role: {
+        type: String,
+        default:'user'
     }
 })
 

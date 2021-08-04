@@ -3,7 +3,7 @@ import { Request, Response } from "express";
 const express = require('express')
 const app = express();
 const mongoose = require('mongoose')
-const dotenv = require('dotenv').config()
+require('dotenv').config()
 const cors = require('cors')
 
 
